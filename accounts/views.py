@@ -5,7 +5,6 @@ from .filters import OrderFilter
 
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import Group
 
 from .decorators import unauthenticated_user, allowed_users, admin_only
 
@@ -17,21 +16,12 @@ def register(request):
     if request.method == "POST":
         form = UserRegisterForm(request.POST)
         if form.is_valid():
-            user = form.save()
-
-            # group = Group.objects.get(name='customer')
-
-            # user.groups.add(group)
-
-            # Customer.objects.create(
-            #     user=user,
-            #     name=user.username
-            # )
+            form.save()
             return redirect('login')
 
     return render(request, 'accounts/register.html', context={'form': form})
 
-@unauthenticated_user
+# @unauthenticated_user
 def login_view(request):
 
     if request.method == "POST":

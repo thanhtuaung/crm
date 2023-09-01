@@ -1,4 +1,4 @@
-#!/Users/evotags/TestProjects/crm/venv/bin/python3
+#!/home/lucifer/DjangoProjects/crm/venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
